@@ -13,7 +13,9 @@ const weatherForecast = (lat, long, callback)=>{
                 const temperature = body.currently.temperature
                 const chanceOfRain = body.currently.precipProbability
                 const summary = body.daily.data[0].summary
-                callback(undefined,` ${summary} It is currently ${temperature} degrees and the chance of rain is ${chanceOfRain}.`)
+                const high = body.daily.data[0].temperatureHigh
+                const low = body.daily.data[0].temperatureLow
+                callback(undefined,` ${summary} It is currently ${temperature} degrees. The lowest temperature for today may be ${low} while the high may react ${high}. The chance of rain is ${chanceOfRain}.`)
             }
         })
 
